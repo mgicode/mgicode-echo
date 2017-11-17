@@ -4,25 +4,25 @@
   export POD_IP=`/sbin/ifconfig -a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print \$2}' | tr -d "addr" `
   echo " ############POD_IP     $POD_IP"
 
-   serverPort = ""
+   serverPort=""
    if [ $HTTP_PORT ]; then
-    serverPort = " --server.port=${HTTP_PORT}"
+    serverPort=" --server.port=${HTTP_PORT}"
    else
-    serverPort = ""
+    serverPort=""
    fi
 
-   tcpPort = ""
+   tcpPort=""
    if [ $TCP_PORT ]; then
-    tcpPort = " --tcp.port=${TCP_PORT}"
+    tcpPort=" --tcp.port=${TCP_PORT}"
    else
-    tcpPort = ""
+    tcpPort=""
    fi
 
-   serverName = ""
+   serverName=""
    if [ $SERVER_NAME ]; then
-    serverName = " --server.name=${SERVER_NAME}"
+    serverName=" --server.name=${SERVER_NAME}"
    else
-    serverName = ""
+    serverName=""
    fi
 
    #TCP_PORT  SERVER_NAME  HTTP_PORT
