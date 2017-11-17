@@ -1,12 +1,32 @@
  #!/bin/bash
-      set +e
-       #注意=前后不能有空格 #xargs,
-       export POD_IP=`/sbin/ifconfig -a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print \$2}' | tr -d "addr" `
-       echo " ############POD_IP     $POD_IP"
-      mkdir -p /microservice/
-      cd /microservice/
-      wget $JAR_ADDR
-      chmod 777 {{JAR_NAME}}
-      # hostnetwork中使用 --server.address=$POD_IP 网络访问不了
-      # --spring.profiles.active 用来读取不同的配置文件
-      java -jar -Xms256m  -Xmx512m  {{JAR_NAME}}   --server.port={{HTTP_PORT}}  --thrift.server.port={{THRIFT_PORT}}  --spring.profiles.active=test
+  set +e
+  #注意=前后不能有空格 #xargs,
+  export POD_IP=`/sbin/ifconfig -a | grep inet | grep -v 127.0.0.1 | grep -v inet6 | awk '{print \$2}' | tr -d "addr" `
+  echo " ############POD_IP     $POD_IP"
+
+   serverPort = ""
+   if [ $HTTP_PORT ]; then
+    serverPort = " --server.port=${HTTP_PORT}"
+   else
+    serverPort = ""
+   fi
+
+   tcpPort = ""
+   if [ $TCP_PORT ]; then
+    tcpPort = " --tcp.port=${TCP_PORT}"
+   else
+    tcpPort = ""
+   fi
+
+   serverName = ""
+   if [ $SERVER_NAME ]; then
+    serverName = " --server.name=${SERVER_NAME}"
+   else
+    serverName = ""
+   fi
+
+   #TCP_PORT  SERVER_NAME  HTTP_PORT
+   echo  "TCP_PORT:${TCP_PORT},SERVER_NAME:${SERVER_NAME},HTTP_PORT:${HTTP_PORT}"
+
+  cd /
+  java -jar -Xms256m  -Xmx512m  /mgicode-echo-1.0-SNAPSHOT.jar  ${serverName}  ${serverPort}   ${tcpPort}
