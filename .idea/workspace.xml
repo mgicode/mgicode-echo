@@ -1,21 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1cf9174-9940-48b2-b5f9-2a7bb3a059ad" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_undertow_undertow_core_1_4_18_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_undertow_undertow_servlet_1_4_18_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_undertow_undertow_websockets_jsr_1_4_18_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_el_3_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_annotation_jboss_annotations_api_1_2_spec_1_0_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_websocket_jboss_websocket_api_1_1_spec_1_1_0_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_xnio_xnio_api_3_3_8_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_xnio_xnio_nio_3_3_8_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_undertow_1_5_6_RELEASE.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="f1cf9174-9940-48b2-b5f9-2a7bb3a059ad" name="Default" comment="readme">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -896,7 +883,7 @@
       <updated>1510916023869</updated>
       <workItem from="1510916025302" duration="21491000" />
       <workItem from="1510994809427" duration="631000" />
-      <workItem from="1511053851384" duration="952000" />
+      <workItem from="1511053851384" duration="1393000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1510928303819</created>
@@ -947,11 +934,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510983990292</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="readme">
+      <created>1511091727065</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1511091727065</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23074000" />
+    <option name="totallyTimeSpent" value="23515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="722" extended-state="0" />
@@ -1000,7 +994,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="add consul" />
-    <option name="LAST_COMMIT_MESSAGE" value="add consul" />
+    <MESSAGE value="readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
