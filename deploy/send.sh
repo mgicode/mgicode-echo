@@ -1,3 +1,4 @@
+
 ip="192.168.0.20"
 
 #1copy file to service
@@ -12,11 +13,13 @@ docker rm mgicode-echo
 docker rmi 192.168.0.20:5000/mgicode-echo -f
 docker build -t 192.168.0.20:5000/mgicode-echo  /root/1.1/  -f Dockerfile
 
+
 #3push to aliyun and local
 docker push 192.168.0.20:5000/mgicode-echo
 docker login --username=hi31016710@aliyun.com registry.cn-hangzhou.aliyuncs.com
 docker tag  192.168.0.20:5000/mgicode-echo  registry.cn-hangzhou.aliyuncs.com/prk/mgicode-echo:1.1
 docker push registry.cn-hangzhou.aliyuncs.com/prk/mgicode-echo:1.1
+
 
 # 4deploy with docker
 docker stop mgicode-echo2
@@ -27,6 +30,28 @@ docker run -d   --name mgicode-echo2 \
  --spring.cloud.consul.host=192.168.0.17 --spring.cloud.consul.port=8500  spring.cloud.consul.discovery.tags=foo=bar,baz "  \
  -p 8080:8080 -p 8081:8081  192.168.0.20:5000/mgicode-echo
 docker logs mgicode-echo2
+
+
+
+docker stop  ms-05
+docker rm ms-05
+docker run -d   --name ms-05  --restart=always  \
+ --env ALL_CONF="--spring.application.name=ms05  \
+    --server.port=8080  \
+    --tcp.port=8081  \
+    --endpoints.health.sensitive=false \
+    --management.security.enabled=false \
+    --management.health.consul.enabled=false \
+   --spring.cloud.consul.discovery.enabled=true  \
+   --spring.cloud.consul.host=192.168.0.17 \
+   --spring.cloud.consul.port=8500      \
+   --spring.cloud.consul.discovery.healthCheckUrl=\${management.contextPath}/health
+  " \
+ -p 8080:8080 -p 8081:8081  192.168.0.20:5000/mgicode-echo:1.1
+docker logs ms-05
+curl http://192.168.0.8:8080/health
+
+
 
 #5 test
 sleep 15
