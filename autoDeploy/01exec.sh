@@ -3,7 +3,7 @@
 adminIp=202.121.178.167
 jarName=mgicode-echo-1.2-SNAPSHOT
 #/Users/prk/Projects/jxgs/mgicode-echo/target/mgicode-echo-1.2-SNAPSHOT.jar
-
+jarPath="/Users/prk/Projects/jxgs/mgicode-echo/target/";
 startupFileName=startup.sh
 execFileName=docker.sh
 
@@ -16,7 +16,9 @@ scp $execFileName  root@$adminIp:${toPath}${execFileName}
 scp $startupFileName  root@$adminIp:${toPath}Template${startupFileName}
 scp Dockerfile  root@$adminIp:${toPath}TemplateDockerfile
 
-scp ../dist/${jarName}.jar  root@$adminIp:${toPath}${jarName}.jar
+scp ${jarPath}${jarName}.jar  root@$adminIp:${toPath}${jarName}.jar
+
+#scp ../dist/${jarName}.jar  root@$adminIp:${toPath}${jarName}.jar
 
 #执行命令文件
 echo  $toPath

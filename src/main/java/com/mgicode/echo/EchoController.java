@@ -25,7 +25,7 @@ import java.util.Map;
 public class EchoController {
 
     @Autowired
-    @LoadBalanced
+   // @LoadBalanced
     RestTemplate restTemplate;
 
     @ResponseBody

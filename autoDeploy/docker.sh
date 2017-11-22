@@ -8,7 +8,8 @@ msIPS="192.168.0.8  192.168.0.6"
 msNames="ms01  gateway01 "
 HTTP_PORT="8080 8080 "
 TCP_PORT="8081 8081 "
-
+consulIP="192.168.0.17"
+consulPort="8500"
 dockerAddr="192.168.0.20:5000"
 
 toPath=/root/${jarName}/
@@ -70,8 +71,12 @@ for ip in $msIPS ;do
     --management.security.enabled=false \
     --management.health.consul.enabled=false \
    --spring.cloud.consul.discovery.enabled=true  \
-   --spring.cloud.consul.host=192.168.0.17 \
-   --spring.cloud.consul.port=8500      \
+   --spring.cloud.consul.discovery.hostname=${ip}  \
+   --spring.cloud.consul.discovery.port=${HTTPPORT} \
+   --spring.cloud.consul.discovery.serviceName=${MSNAME} \
+   --spring.cloud.consul.host=${consulIP}   \
+   --spring.cloud.consul.port=${consulPort}    \
+
    --spring.cloud.consul.discovery.healthCheckUrl=http://${ip}:${HTTPPORT}/health \
    \"  -p ${HTTPPORT}:${HTTPPORT} -p ${TCPPORT}:${TCPPORT}  ${dockerPath}
 
@@ -86,8 +91,11 @@ for ip in $msIPS ;do
   let i++
 done
 
+#  --server.address=${ip}  \
+  #一定需要
+  #--spring.cloud.consul.discovery.serviceName=${MSNAME} \
 
-
+#http://202.121.178.167:8080
 
  #docker logs ${MSNAME}
 #curl http://${msIP}:${HTTP_PORT}/health
